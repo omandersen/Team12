@@ -30,7 +30,7 @@ insert into otra.user (User_firstName,
                        User_Email,
                        User_password)
 values (
-        'trym',
-        'Staurheim',
-        'trym@example.com',
+        'Ole Marius',
+        'Andersen',
+        'omandersen@uia.no',
         '12345');

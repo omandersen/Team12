@@ -1,10 +1,11 @@
 package models;
 
 public class UserModel {
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String password;
+    private int UtøverID;
+    private int Født;
+    private String Navn;
+    private String Klubb;
+
 
     /**
      *
@@ -13,11 +14,11 @@ public class UserModel {
      * @param userName the users email .e.g., example@example.com
      * @param password the users password: we usually encrypt it in the database but thats for you to figure out :)
      */
-    public UserModel(String firstName, String lastName, String userName, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
+    public UserModel(int UtøverID, int Født, String Navn, String Klubb) {
+        this.UtøverID = UtøverID;
+        this.Født = Født;
+        this.Navn = Navn;
+        this.Klubb = Klubb;
     }
 
     /**
@@ -25,37 +26,34 @@ public class UserModel {
      * GETTERS AND SETTERS!
      */
 
-    public String getFirstName() {
-        return firstName;
+    public int getUtøverID() {
+        return UtøverID;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUtøverID(int utøverID) { UtøverID = utøverID;
     }
 
-    public String getLastName() {
-        return lastName;
+    public int getFødt() {
+        return Født;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFødt(int født) {
+        Født = født;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getNavn() {
+        return Navn;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setNavn(String navn) {
+        Navn = navn;
     }
 
-
-
-    public String getPassword() {
-        return password;
+    public String getKlubb() {
+        return Klubb;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setKlubb(String klubb) {
+        Klubb = klubb;
     }
 }

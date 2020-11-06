@@ -19,9 +19,9 @@ public class RequestUserNameFromDb extends AbstractAppServlet {
 
     @Override
     protected void writeBody(HttpServletRequest req, PrintWriter out) {
-        out.println("<h1>Get someone from the database :-)</h1>");
+        out.println("<h1>Få resultat her</h1>");
         out.println("<form action='ReceiveUserNameFromDb' method='POST'>");
-        out.println("  <label for='uname'>Username:</label>");
+        out.println("  <label for='uname'>Utøver:</label>");
         out.println("  <input type='text' name='uname'/>");
         out.println("  <input type='submit' />");
         out.println("</form>");

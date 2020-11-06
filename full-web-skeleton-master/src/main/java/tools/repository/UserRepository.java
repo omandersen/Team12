@@ -19,19 +19,19 @@ public class UserRepository {
      * @param p printwriter for å skrive ut html i servlet. F.eks SQL feilmeldinger eller annen info.
      */
 
-    public static void addUser(UserModel user, PrintWriter p) {
+    public static void addUtøver(UserModel smutøver, PrintWriter p) {
         Connection db = null;
         PreparedStatement insertNewUser = null;
         try {
             db = DbTool.getINSTANCE().dbLoggIn(p);
             String query =
-                "INSERT INTO `user` (User_firstName, User_lastName,User_Email, User_password ) values (?,?,?,?)";
+                "INSERT INTO `smutøver` (utøverid, født, navn, klubb ) values (?,?,?,?)";
 
             insertNewUser = db.prepareStatement(query);
-            insertNewUser.setString(1, user.getFirstName());
-            insertNewUser.setString(2, user.getLastName());
-            insertNewUser.setString(3, user.getUserName());
-            insertNewUser.setString(4, user.getPassword());
+            insertNewUser.setInt(1, smutøver.getUtøverID());
+            insertNewUser.setInt(2, smutøver.getFødt());
+            insertNewUser.setString(3, smutøver.getNavn());
+            insertNewUser.setString(4, smutøver.getKlubb());
             insertNewUser.execute();
 
         } catch (SQLException throwables) {
@@ -53,7 +53,7 @@ public class UserRepository {
      * @return et String objekt med eposten til brukeren.
      */
 
-    public static String getUserName(String username, PrintWriter p) {
+    public static String getNavn(String Navn, PrintWriter p) {
         Connection db = null;
         PreparedStatement prepareStatement = null;
 
@@ -61,12 +61,12 @@ public class UserRepository {
         try {
             db = DbTool.getINSTANCE().dbLoggIn(p);
             ResultSet rs = null;
-            String query = "SELECT * FROM otra.user where User_Email = ?";
+            String query = "SELECT * FROM roklubb.SMUtøver where Navn = ?";
             prepareStatement = db.prepareStatement(query);
-            prepareStatement.setString(1, username);
+            prepareStatement.setString(1, Navn);
             rs = prepareStatement.executeQuery();
             while (rs.next()) {
-                toReturn = rs.getString("User_Email");
+                toReturn = rs.getString("Navn");
             }
             rs.close();
 
