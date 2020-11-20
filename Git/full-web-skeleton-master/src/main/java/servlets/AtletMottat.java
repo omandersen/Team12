@@ -12,8 +12,8 @@ import tools.repository.UserRepository;
 import models.UserModel;
 
 
-@WebServlet(name= "UtøverMottat", urlPatterns = {"/UtøverMottat"})
-public class UtøverMottat extends AbstractAppServlet {
+@WebServlet(name= "AtletMottat", urlPatterns = {"/AtletMottat"})
+public class AtletMottat extends AbstractAppServlet {
     /**
      * Tar imot http requesten og kaller på writeResponse()
      * @param request objektet sender data til servletet
@@ -26,11 +26,12 @@ public class UtøverMottat extends AbstractAppServlet {
         throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
-                Integer id = Integer.parseInt(request.getParameter("id"));
-                Integer Født = Integer.parseInt(request.getParameter("Fid"));
+                Integer AtletID = Integer.parseInt(request.getParameter("AtletID"));
+                Integer Alder = Integer.parseInt(request.getParameter("Alder"));
                 String Navn = request.getParameter("Navn");
-                String Klubb = request.getParameter("Klubb");
-                UserRepository.addUtøver(id, Født, Navn, Klubb, out);
+                Integer KlubbID = Integer.parseInt(request.getParameter("KlubbID"));
+                Integer KlasseID = Integer.parseInt(request.getParameter("KlasseID"));
+                UserRepository.addAtlet(AtletID, Alder, Navn, KlubbID, KlasseID, out);
 
     }
 

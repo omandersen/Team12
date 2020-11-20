@@ -1,44 +1,34 @@
 package models;
 
 public class UserModel {
-    private int UtøverID;
-    private int Født;
+    private int AtletID;
+    private int Alder;
     private String Navn;
-    private String Klubb;
+    private int KlubbID;
+    private int KlasseID;
 
 
-    /**
-     *
-     * @param firstName the users firstname
-     * @param lastName the users lastname
-     * @param userName the users email .e.g., example@example.com
-     * @param password the users password: we usually encrypt it in the database but thats for you to figure out :)
-     */
-    public UserModel(int UtøverID, int Født, String Navn, String Klubb) {
-        this.UtøverID = UtøverID;
-        this.Født = Født;
+    public UserModel(int AtletID, int Alder, String Navn, int KlubbID, int KlasseID) {
+        this.AtletID = AtletID;
+        this.Alder = Alder;
         this.Navn = Navn;
-        this.Klubb = Klubb;
+        this.KlubbID = KlubbID;
+        this.KlasseID = KlasseID;
+    }
+    public int getAtletID() {
+        return AtletID;
     }
 
-    /**
-     *
-     * GETTERS AND SETTERS!
-     */
-
-    public int getUtøverID() {
-        return UtøverID;
+    public void setAtletID(int atletID) {
+        AtletID = atletID;
     }
 
-    public void setUtøverID(int utøverID) { UtøverID = utøverID;
+    public int getAlder() {
+        return Alder;
     }
 
-    public int getFødt() {
-        return Født;
-    }
-
-    public void setFødt(int født) {
-        Født = født;
+    public void setAlder(int alder) {
+        Alder = alder;
     }
 
     public String getNavn() {
@@ -49,11 +39,21 @@ public class UserModel {
         Navn = navn;
     }
 
-    public String getKlubb() {
-        return Klubb;
+    public int getKlubbID() {
+        return KlubbID;
     }
 
-    public void setKlubb(String klubb) {
-        Klubb = klubb;
+    public void setKlubbID(int klubbID) {
+        KlubbID = klubbID;
     }
+
+    public int getKlasseID() {
+        return KlasseID;
+    }
+
+    public void setKlasseID(int klasseID) {
+        KlasseID = klasseID;
+    }
+
+
 }

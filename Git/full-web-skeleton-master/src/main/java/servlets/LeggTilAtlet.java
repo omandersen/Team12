@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import tools.repository.UserRepository;
 import models.UserModel;
 
-@WebServlet(name = "LeggTilUtøver", urlPatterns = {"/LeggTilUtøver"})
-public class LeggTilUtøver extends AbstractAppServlet {
+@WebServlet(name = "LeggTilAtlet", urlPatterns = {"/LeggTilAtlet"})
+public class LeggTilAtlet extends AbstractAppServlet {
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -21,22 +21,26 @@ public class LeggTilUtøver extends AbstractAppServlet {
 
     @Override
     protected void writeBody(HttpServletRequest req, PrintWriter out) {
-        out.println("<h1>Legg til Utøver her</h1>");
-        out.println("<form action='UtøverMottat' method='POST'>");
-        out.println("  <label for='UtøverID'>UtøverID:</label>");
-        out.println("  <input type='number' name='id'/>");
+        out.println("<h1>Legg til Atlet her</h1>");
+        out.println("<form action='AtletMottat' method='POST'>");
+        out.println("  <label for='AtletID'>AtletID:</label>");
+        out.println("  <input type='number' name='AtletID'/>");
         out.println("<br>");
         out.println("<br>");
-        out.println("  <label for='Født'>Fødselsår:</label>");
-        out.println("  <input type='number' name='Fid'/>");
+        out.println("  <label for='Alder'>Alder:</label>");
+        out.println("  <input type='number' name='Alder'/>");
         out.println("<br>");
         out.println("<br>");
         out.println("  <label for='Navn'>Navn:</label>");
         out.println("  <input type='text' name='Navn'/>");
         out.println("<br>");
         out.println("<br>");
-        out.println("  <label for='Klubb'>Klubb:</label>");
-        out.println("  <input type='text' name='Klubb'/>");
+        out.println("  <label for='KlubbID'>KlubbID:</label>");
+        out.println("  <input type='number' name='KlubbID'/>");
+        out.println("<br>");
+        out.println("<br>");
+        out.println("  <label for='KlasseID'>KlasseID:</label>");
+        out.println("  <input type='number' name='KlasseID'/>");
         out.println("<br>");
         out.println("<br>");
         out.println("  <input type='submit' />");

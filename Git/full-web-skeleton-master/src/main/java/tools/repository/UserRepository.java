@@ -19,19 +19,20 @@ public class UserRepository {
      * @param p printwriter for å skrive ut html i servlet. F.eks SQL feilmeldinger eller annen info.
      */
 
-    public static void addUtøver(int id, int Født, String Navn, String Klubb, PrintWriter p) {
+    public static void addAtlet(int AtletID, int Alder, String Navn, int KlubbID, int KlasseID, PrintWriter p) {
         Connection db = null;
         PreparedStatement insertNewUser = null;
         try {
             db = DbTool.getINSTANCE().dbLoggIn(p);
             String query =
-                "INSERT INTO `SMUtøver` (Født, Navn, Klubb ) VALUES (?,?,?)";
+                "INSERT INTO `Atlet` (Alder, Navn, KlubbID, KlasseID ) VALUES (?,?,?,?)";
 
             insertNewUser = db.prepareStatement(query);
 
-            insertNewUser.setInt(1, Født);
+            insertNewUser.setInt(1, Alder);
             insertNewUser.setString(2, Navn);
-            insertNewUser.setString(3, Klubb);
+            insertNewUser.setInt(3, KlubbID);
+            insertNewUser.setInt(4, KlasseID);
             insertNewUser.execute();
 
         } catch (SQLException throwables) {
@@ -61,7 +62,7 @@ public class UserRepository {
         try {
             db = DbTool.getINSTANCE().dbLoggIn(p);
             ResultSet rs = null;
-            String query = "SELECT * FROM roklubb.SMUtøver where Navn = ?";
+            String query = "SELECT * FROM roklubb.Atlet where Navn = ?";
             prepareStatement = db.prepareStatement(query);
             prepareStatement.setString(1, Navn);
             rs = prepareStatement.executeQuery();

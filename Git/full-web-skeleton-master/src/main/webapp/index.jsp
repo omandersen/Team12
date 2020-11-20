@@ -10,6 +10,6 @@
 
 </p>
 <p>Trykk Her!
-    <a href="RequestUserNameFromDb">Få Utøver!</a></p>
+    <a href="RequestUserNameFromDb">Hent Utøver!</a></p>
 </body>
 </html>
